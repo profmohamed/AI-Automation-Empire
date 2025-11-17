@@ -11,10 +11,10 @@ requires-python = ">=3.11"
 license = {text = "MIT"}
 keywords = ["automation", "scraping", "ai", "web-scraping", "freelance", "opportunities", "playwright", "fastapi"]
 authors = [
-    {name = "AI Automation Empire Team", email = "support@aiautomationempire.com"}
+    {name = "Mohamed Salem", email = "me@mohamed-salem.com"}
 ]
 maintainers = [
-    {name = "AI Automation Empire Team", email = "support@aiautomationempire.com"}
+    {name = "Mohamed Salem", email = "me@mohamed-salem.com"}
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -108,6 +108,7 @@ Documentation = "https://github.com/profmohamed/AI-Automation-Empire/blob/main/R
 Repository = "https://github.com/profmohamed/AI-Automation-Empire"
 "Bug Tracker" = "https://github.com/profmohamed/AI-Automation-Empire/issues"
 Changelog = "https://github.com/profmohamed/AI-Automation-Empire/blob/main/CHANGELOG.md"
+"Author Website" = "https://mohamed-salem.com"
 
 [project.scripts]
 ai-empire = "app.cli:main"

@@ -8,8 +8,8 @@ long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 setup(
     name="ai-automation-empire",
     version="1.0.0",
-    author="AI Automation Empire Team",
-    author_email="support@aiautomationempire.com",
+    author="Mohamed Salem",
+    author_email="me@mohamed-salem.com",
     description="The Ultimate Web Scraping & Automation Platform",
     long_description=long_description,
     long_description_content_type="text/markdown",
