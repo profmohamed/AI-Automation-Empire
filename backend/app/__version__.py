@@ -1,0 +1,10 @@
+"""
+Version information
+"""
+__version__ = "1.0.0"
+__title__ = "AI Automation Empire"
+__description__ = "The Ultimate Web Scraping & Automation Platform"
+__author__ = "AI Automation Empire Team"
+__author_email__ = "support@aiautomationempire.com"
+__license__ = "MIT"
+__url__ = "https://github.com/profmohamed/AI-Automation-Empire"

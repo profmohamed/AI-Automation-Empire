@@ -1,0 +1,91 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Get all history for changelog
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          VERSION=${{ steps.get_version.outputs.VERSION }}
+          CHANGELOG=$(sed -n "/## \[$VERSION\]/,/## \[/p" CHANGELOG.md | sed '$d')
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Build distribution packages
+        run: |
+          cd backend
+          pip install build
+          python -m build
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Release v${{ steps.get_version.outputs.VERSION }}
+          body: |
+            # 🚀 AI Automation Empire v${{ steps.get_version.outputs.VERSION }}
+
+            ${{ steps.changelog.outputs.CHANGELOG }}
+
+            ## 📦 Installation
+
+            ### Quick Install (Recommended)
+            ```bash
+            curl -fsSL https://raw.githubusercontent.com/${{ github.repository }}/main/install.sh | bash
+            ```
+
+            ### Docker Compose
+            ```bash
+            git clone https://github.com/${{ github.repository }}.git
+            cd AI-Automation-Empire
+            docker-compose up -d
+            ```
+
+            ### Python Package
+            ```bash
+            pip install ai-automation-empire
+            ```
+
+            ## 📚 Documentation
+            - [README](https://github.com/${{ github.repository }}/blob/main/README.md)
+            - [Quick Start Guide](https://github.com/${{ github.repository }}/blob/main/QUICKSTART.md)
+            - [Architecture](https://github.com/${{ github.repository }}/blob/main/ARCHITECTURE.md)
+
+            ## 🙏 Thank you for using AI Automation Empire!
+
+            ⭐ Star this repo if you find it useful!
+          draft: false
+          prerelease: false
+          files: |
+            backend/dist/*
+            install.sh
+            docker-compose.yml
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: distribution-packages
+          path: backend/dist/
