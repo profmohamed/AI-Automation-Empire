@@ -1,0 +1,74 @@
+# FastAPI & Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9
+asyncpg==0.29.0
+
+# Async & Task Queue
+celery==5.3.6
+redis==5.0.1
+flower==2.0.1
+
+# Web Scraping
+playwright==1.41.2
+selenium==4.17.2
+undetected-chromedriver==3.5.5
+beautifulsoup4==4.12.3
+lxml==5.1.0
+requests==2.31.0
+httpx==0.26.0
+fake-useragent==1.4.0
+
+# AI & NLP
+openai==1.10.0
+anthropic==0.18.1
+groq==0.4.2
+together==1.0.2
+langchain==0.1.4
+langchain-openai==0.0.5
+sentence-transformers==2.3.1
+spacy==3.7.2
+nltk==3.8.1
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.1
+bcrypt==4.1.2
+
+# Outreach & Communication
+twilio==8.12.0
+sendgrid==6.11.0
+python-telegram-bot==20.7
+linkedin-api==2.2.1
+
+# Proxies & Captcha
+2captcha-python==1.2.0
+anticaptchaofficial==1.0.56
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2024.1
+loguru==0.7.2
+tenacity==8.2.3
+aiofiles==23.2.1
+
+# Payment
+stripe==8.2.0
+
+# Monitoring
+sentry-sdk==1.40.0
+prometheus-client==0.19.0
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+httpx-mock==0.15.0
